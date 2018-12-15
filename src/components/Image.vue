@@ -32,7 +32,7 @@ img {
 }
 
 #figure {
-  margin: 10px 15px 10px 15px;
+  margin: 30px 15px 30px 15px;
 }
 
 figcaption {

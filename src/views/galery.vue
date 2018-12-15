@@ -11,21 +11,19 @@
 
 <script>
 import Imagen from "@/components/Image.vue";
+import axios from "axios";
 export default {
   components: { Imagen },
   name: "galery",
   data() {
     return {
-      images: [
-        {
-          albumId: 1,
-          id: 1,
-          title: "accusamus beatae ad facilis cum similique qui sunt",
-          url: "https://via.placeholder.com/600/92c952",
-          thumbnailUrl: "https://via.placeholder.com/150/92c952"
-        }
-      ]
+      images: []
     };
+  },
+  created: function() {
+    axios.get("https://jsonplaceholder.typicode.com/photos").then(response => {
+      this.images = response.data;
+    });
   },
   computed: {
     getImagesLength() {
