@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import Galery from "./views/galery.vue"
+import Galery from "./views/Galery.vue"
 Vue.use(Router);
 
 export default new Router({
