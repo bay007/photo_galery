@@ -1,12 +1,14 @@
 <template>
   <div>
     <h1>Ésta es la galeria con {{getImagesLength}} elementos</h1>
-    <Loading v-if="isLoading"/>
-    <ul class="galery_container" v-else>
-      <li class="images_group" v-for="image in images" :key="image.id">
-        <Imagen v-bind:image_obj="image"/>
-      </li>
-    </ul>
+    <transition name="slide-fade" :duration="{ enter: 500, leave: 800 }">
+      <Loading v-if="isLoading"/>
+      <ul class="galery_container" v-else>
+        <li class="images_group" v-for="image in images" :key="image.id">
+          <Imagen v-bind:image_obj="image"/>
+        </li>
+      </ul>
+    </transition>
   </div>
 </template>
 
@@ -63,5 +65,18 @@ h1 {
   font-weight: bold;
   font-size: 3em;
   text-align: center;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
 }
 </style>
